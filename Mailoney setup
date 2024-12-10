@@ -1,0 +1,8 @@
+git clone https://github.com/phin3has/mailoney.git
+cd mailoney
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python3 mailoney.py -i 192.168.153.130 -p 2525 -t schinzo_open_rela
+#Then on another cmd we redirect port 25 to port 2525
+sudo iptables -t nat -A PREROUTING -p tcp --dport 25 -j REDIRECT --to-port 2525
